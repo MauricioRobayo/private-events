@@ -8,10 +8,17 @@
 
 require 'faker'
 
+users = []
+
 10.times do
-  User.create(username: Faker::Name.unique.first_name).tap do |user|
+  User.create(username: Faker::Name.unique.first_name) do |user|
     rand(20).times do
-      Event.create(description: Faker::Hipster.sentence, date: Faker::Date.forward(days: 30), creator_id: user.id)
+      Event.create(description: Faker::Hipster.sentence, date: Faker::Date.forward(days: 30), creator: user) do |event|
+        users.sample(3).each do |attend|
+          Attendance.create(event: event, attendee: attend, invited_by: user)
+        end
+      end
     end
+    users << user
   end
 end
