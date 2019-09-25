@@ -14,5 +14,6 @@ class SessionsController < ApplicationController
 
   def delete
     self.current_user = nil
+    redirect_to :root
   end
 end
