@@ -1,4 +1,9 @@
 class EventsController < ApplicationController
+
+  def index
+    @events = Event.includes(:user).all
+  end
+
   def new
     @event = Event.new
   end
@@ -11,6 +16,10 @@ class EventsController < ApplicationController
       flash.now[:error] = "Couldn't create the event. Sorry!"
       render :new
     end
+  end
+
+  def show
+    @event = Event.find(params[:id])
   end
 
   private
