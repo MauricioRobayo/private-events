@@ -1,8 +1,8 @@
 <h1><%= @event.description %></h1>
-<div>
-Event created by: <%= link_to @event.creator.username, @event.creator %></div>
+<h2>Event created by: <%= link_to @event.creator.username, @event.creator %></h2>
+<h3>Attendees:</h3>
 <ul>
 <% @event.attendees.each do |attendee| %>
-  <li><%= attendee.username %></li>
+  <li><%= link_to attendee.username, attendee %></li>
 <% end %>
 </ul>
