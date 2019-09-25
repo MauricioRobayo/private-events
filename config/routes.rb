@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'events/new'
-  post 'events/new', to: 'events#create'
+  resources :events, only: [:new, :create]
+
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#delete'
