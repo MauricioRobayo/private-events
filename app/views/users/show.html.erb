@@ -1,2 +1,5 @@
-<h1>User <%= @user.username %></h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>User <%= @current_user.username %></h1>
+
+<% @current_user.events.each do |event| %>
+  <%= render 'events/event', event: event %>
+<% end %>

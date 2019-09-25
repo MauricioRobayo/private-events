@@ -9,8 +9,9 @@
 require 'faker'
 
 10.times do
-  user = User.create(username: Faker::Name.unique.first_name)
-  rand(20).times do
-    Event.create(description: Faker::Hipster.sentence, date: Faker::Date.forward(days: 30), creator_id: user.id)
+  User.create(username: Faker::Name.unique.first_name).tap do |user|
+    rand(20).times do
+      Event.create(description: Faker::Hipster.sentence, date: Faker::Date.forward(days: 30), creator_id: user.id)
+    end
   end
 end
