@@ -8,17 +8,18 @@
 
 require 'faker'
 
-users = []
-
 10.times do
-  User.create(username: Faker::Name.unique.first_name) do |user|
-    rand(20).times do
-      Event.create(description: Faker::Hipster.sentence, date: Faker::Date.forward(days: 30), creator: user) do |event|
-        users.sample(3).each do |attend|
-          Attendance.create(event: event, attendee: attend, invited_by: user)
-        end
+  User.create(username: Faker::Name.unique.first_name)
+end
+
+users = User.all
+
+users.each do |user|
+  rand(20).times do
+    Event.create(description: Faker::Hipster.sentence, date: Faker::Date.forward(days: 30), creator: user) do |event|
+      users.sample(5).each do |attend|
+        Attendance.create(event: event, attendee: attend, invited_by: user) if attend.id != user
       end
     end
-    users << user
   end
 end
