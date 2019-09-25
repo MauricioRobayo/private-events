@@ -76,6 +76,8 @@ GEM
     concurrent-ruby (1.1.5)
     crass (1.0.4)
     erubi (1.8.0)
+    faker (2.4.0)
+      i18n (~> 1.6.0)
     ffi (1.11.1)
     ffi (1.11.1-x64-mingw32)
     globalid (0.4.2)
@@ -183,7 +185,6 @@ GEM
       thread_safe (~> 0.1)
     tzinfo-data (1.2019.3)
       tzinfo (>= 1.0.0)
-    wdm (0.1.1)
     web-console (4.0.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -212,6 +213,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+  faker (~> 2.4.0)
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
   puma (~> 3.11)
@@ -223,7 +225,6 @@ DEPENDENCIES
   sqlite3 (~> 1.4)
   turbolinks (~> 5)
   tzinfo-data
-  wdm (>= 0.1.0)
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 4.0)
