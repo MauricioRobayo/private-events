@@ -1,0 +1,7 @@
+<%= form_for @event, url: events_new_path do |f| %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <%= f.label :date %>
+  <%= f.date_field :date %>
+  <%= f.submit 'Save event' %>
+<% end %>
