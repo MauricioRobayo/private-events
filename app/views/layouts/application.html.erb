@@ -14,7 +14,6 @@
       <div class="<%= k %>"><%= f %></div>
     <% end %>
 
-
     <% if @current_user %>
       <h1>You are logged in as <%= @current_user.username %></h1>
       <%= link_to 'Logout', logout_path, method: :delete %>&nbsp/&nbsp
@@ -24,6 +23,13 @@
       <%= link_to 'Please login', login_path %>&nbsp/&nbsp
       <%= link_to 'Sign up', signup_path %>
     <% end %>
+
+    <% @user&.errors&.full_messages&.each do |msg| %>
+      <div class="error"><%= msg %></div>
+    <% end %>
+
     <%= yield %>
+
+
   </body>
 </html>
