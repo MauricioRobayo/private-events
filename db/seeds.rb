@@ -16,9 +16,9 @@ users = User.all
 
 users.each do |user|
   rand(20).times do
-    Event.create(description: Faker::Hipster.sentence, date: Faker::Date.forward(days: 30), creator: user) do |event|
-      users.sample(5).each do |attend|
-        Attendance.create(event: event, attendee: attend, invited_by: user) if attend.id != user
+    user.events.create(description: Faker::Hipster.sentence, date: Faker::Date.forward(days: 30)) do |event|
+      users.sample(5).each do |attendee|
+        attendee.attendances.create(event: event, invited_by: user) if attendee.id != user
       end
     end
   end
