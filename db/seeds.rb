@@ -8,6 +8,8 @@
 
 require 'faker'
 
+User.create(username: 'demo')
+
 4.times do
   User.create(username: Faker::Name.unique.first_name)
 end
