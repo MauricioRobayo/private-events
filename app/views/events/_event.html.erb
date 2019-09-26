@@ -1,2 +1,11 @@
-<h3><%= link_to event.description, event %></h3>
-<time><%= event.date %></time>
+<div>
+  <h3><%= link_to event.description, event %></h3>
+  <div>
+    <span>Organized by <%= link_to event.creator.username, event.creator %>&nbsp|&nbsp
+    <% if event.date < Time.now %>
+      <time>Took place <%= time_ago_in_words(event.date) %> ago</time>
+    <% else %>
+      <time>Will take place in <%= time_ago_in_words(event.date) %></time>
+    <% end %>
+  </div>
+</div>
