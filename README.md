@@ -6,7 +6,10 @@ Create and manage private events: A user can create events. A user can attend ma
 
 [Assignment link](https://www.theodinproject.com/courses/ruby-on-rails/lessons/associations).
 
+
 ## Run the demo
+
+<img src="design/private-events-db-design.svg" width="50%" align="right">
 
 To fill the database with demo data, run the following command:
 
