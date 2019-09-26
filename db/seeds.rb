@@ -8,17 +8,17 @@
 
 require 'faker'
 
-10.times do
+4.times do
   User.create(username: Faker::Name.unique.first_name)
 end
 
 users = User.all
 
 users.each do |user|
-  rand(20).times do
+  rand(4).times do
     user.events.create(description: Faker::Hipster.sentence, date: Faker::Date.forward(days: 30)) do |event|
-      users.sample(5).each do |attendee|
-        attendee.attendances.create(event: event, invited_by: user) if attendee.id != user
+      users.sample(2).each do |attendee|
+        attendee.attendances.create(attended_event: event, invited_by: user) if attendee.id != user.id
       end
     end
   end

@@ -1,5 +1,12 @@
-<h1>Events created by <%= @user.username %>:</h1>
+<h2>Events created by <%= @user.username %>:</h2>
 
 <% @user.events.each do |event| %>
   <%= render 'events/event', event: event %>
+<% end %>
+
+<h2>Events to atttend by <%= @user.username %>:</h2>
+
+
+<% @user.attended_events.each do |attended_event| %>
+  <%= render 'events/event', event: attended_event %>
 <% end %>
