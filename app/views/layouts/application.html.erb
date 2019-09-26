@@ -21,7 +21,8 @@
       <%= link_to 'Events', :root %>&nbsp/&nbsp
       <%= link_to 'Create event', new_event_path %>
     <% else %>
-      <%= link_to 'Please login', login_path %>
+      <%= link_to 'Please login', login_path %>&nbsp/&nbsp
+      <%= link_to 'Sign up', signup_path %>
     <% end %>
     <%= yield %>
   </body>
