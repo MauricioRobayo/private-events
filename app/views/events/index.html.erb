@@ -3,8 +3,7 @@
 <% @events.each do |event| %>
   <ul>
     <li>
-      <div><%= link_to event.description, event %></div>
-      <div><%= link_to event.creator.username, event.creator %></div>
+      <%= render 'events/event', event: event %>
     </li>
   </ul>
 <% end %>

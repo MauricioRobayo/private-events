@@ -1,12 +1,23 @@
 <h2>Events created by <%= @user.username %>:</h2>
 
-<% @user.events.each do |event| %>
+<h2>Upcoming</h2>
+<% @user.events.upcoming.each do |event| %>
+  <%= render 'events/event', event: event %>
+<% end %>
+
+<h2>Previous</h2>
+<% @user.events.previous.each do |event| %>
   <%= render 'events/event', event: event %>
 <% end %>
 
 <h2>Events to atttend by <%= @user.username %>:</h2>
 
+<h2>Upcoming</h2>
+<% @user.attended_events.upcoming.each do |attended_event| %>
+  <%= render 'events/event', event: attended_event %>
+<% end %>
 
-<% @user.attended_events.each do |attended_event| %>
+<h2>Previous</h2>
+<% @user.attended_events.previous.each do |attended_event| %>
   <%= render 'events/event', event: attended_event %>
 <% end %>
