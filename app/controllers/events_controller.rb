@@ -1,5 +1,6 @@
-class EventsController < ApplicationController
+# frozen_string_literal: true
 
+class EventsController < ApplicationController
   def index
     @events = Event.includes(:creator).all
   end
@@ -10,7 +11,7 @@ class EventsController < ApplicationController
 
   def create
     if current_user.events.create(event_params)
-      flash[:success] = "New event created successfully"
+      flash[:success] = 'New event created successfully'
       redirect_to current_user
     else
       flash.now[:error] = "Couldn't create the event. Sorry!"
@@ -27,5 +28,4 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:description, :date)
   end
-
 end
