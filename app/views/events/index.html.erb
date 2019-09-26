@@ -1,9 +1,6 @@
 <h1>Events</h1>
-
+<div class="events-container">
 <% @events.each do |event| %>
-  <ul>
-    <li>
-      <%= render 'events/event', event: event %>
-    </li>
-  </ul>
+  <%= render 'events/event', event: event %>
 <% end %>
+</div>

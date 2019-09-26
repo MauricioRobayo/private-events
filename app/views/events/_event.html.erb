@@ -1,5 +1,5 @@
-<div>
-  <h3><%= link_to event.description, event %></h3>
+<div class="event">
+  <div class="title"><%= link_to event.description, event %></div>
   <div>
     <span>Organized by <%= link_to event.creator.username, event.creator %>&nbsp|&nbsp
     <% if event.date < Time.now %>

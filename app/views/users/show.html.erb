@@ -1,23 +1,31 @@
 <h2>Events created by <%= @user.username %>:</h2>
 
 <h2>Upcoming</h2>
+<div class="events-container">
 <% @user.events.upcoming.each do |event| %>
   <%= render 'events/event', event: event %>
 <% end %>
+</div>
 
 <h2>Previous</h2>
+<div class="events-container">
 <% @user.events.previous.each do |event| %>
   <%= render 'events/event', event: event %>
 <% end %>
+</div>
 
 <h2>Events to atttend by <%= @user.username %>:</h2>
 
 <h2>Upcoming</h2>
+<div class="events-container">
 <% @user.attended_events.upcoming.each do |attended_event| %>
   <%= render 'events/event', event: attended_event %>
 <% end %>
+</div>
 
 <h2>Previous</h2>
+<div class="events-container">
 <% @user.attended_events.previous.each do |attended_event| %>
   <%= render 'events/event', event: attended_event %>
 <% end %>
+</div>
