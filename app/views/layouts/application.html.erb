@@ -10,9 +10,16 @@
   </head>
 
   <body>
+    <% flash.each do |k, f| %>
+      <div class="<%= k %>"><%= f %></div>
+    <% end %>
+
+
     <% if @current_user %>
       <h1>You are logged in as <%= @current_user.username %></h1>
-      <%= link_to 'Logout', logout_path, method: :delete %>&nbsp/&nbsp<%= link_to 'Events', events_path %>
+      <%= link_to 'Logout', logout_path, method: :delete %>&nbsp/&nbsp
+      <%= link_to 'Events', :root %>&nbsp/&nbsp
+      <%= link_to 'Create event', new_event_path %>
     <% else %>
       <%= link_to 'Please login', login_path %>
     <% end %>
