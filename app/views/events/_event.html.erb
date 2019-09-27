@@ -1,0 +1,25 @@
+<div class="event">
+  <div class="title"><%= link_to event.description, event %></div>
+  <div>
+    <span>Organized by <%= link_to event.creator.username, event.creator %>&nbsp|&nbsp
+    <% if event.date < Time.now %>
+      <time>Took place <%= time_ago_in_words(event.date) %> ago</time>
+    <% else %>
+      <time>Will take place in <%= time_ago_in_words(event.date) %></time>
+    <% end %>
+    <% if @current_user %>
+      <span>
+        <% if @current_user.attending?(event) %>
+          Attending
+        <% else %>
+          Not attending
+          <% if event.date >= Time.now %>
+            <span class="attend-link">
+              <%= link_to 'Attend',  attendances_create_path(event_id: event.id), method: :post %>
+            </span>
+          <% end %>
+        <% end %>
+      </span>
+    <% end %>
+  </div>
+</div>
