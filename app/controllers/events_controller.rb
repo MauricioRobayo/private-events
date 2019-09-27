@@ -3,6 +3,8 @@
 class EventsController < ApplicationController
   def index
     @events = Event.includes(:creator).all
+    @upcoming = @events.upcoming
+    @previous = @events.previous
   end
 
   def new
@@ -10,7 +12,7 @@ class EventsController < ApplicationController
   end
 
   def create
-    if current_user.events.create(event_params)
+    if current_user.events.build(event_params).save
       flash[:success] = 'New event created successfully'
       redirect_to current_user
     else
