@@ -14,7 +14,7 @@
         <% else %>
           Not attending
           <span class="attend-link">
-            <%= link_to 'Attend', '#', method: :post %>
+            <%= link_to 'Attend',  attendances_create_path(event_id: event.id), method: :post %>
           </span>
         <% end %>
       </span>

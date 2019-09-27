@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :events, only: [:new, :create, :show, :index]
 
+  post 'attendances/create'
+
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#delete'
