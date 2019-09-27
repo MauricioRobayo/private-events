@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AttendancesController < ApplicationController
   def create
     if current_user.attendances.new(event_id: params[:event_id], invited_by: current_user).save
