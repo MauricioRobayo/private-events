@@ -7,5 +7,17 @@
     <% else %>
       <time>Will take place in <%= time_ago_in_words(event.date) %></time>
     <% end %>
+    <% if @current_user %>
+      <span>
+        <% if @current_user.attending?(event) %>
+          Attending
+        <% else %>
+          Not attending
+          <span class="attend-link">
+            <%= link_to 'Attend', '#', method: :post %>
+          </span>
+        <% end %>
+      </span>
+    <% end %>
   </div>
 </div>
