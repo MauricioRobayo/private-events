@@ -13,9 +13,11 @@
           Attending
         <% else %>
           Not attending
-          <span class="attend-link">
-            <%= link_to 'Attend',  attendances_create_path(event_id: event.id), method: :post %>
-          </span>
+          <% if event.date >= Time.now %>
+            <span class="attend-link">
+              <%= link_to 'Attend',  attendances_create_path(event_id: event.id), method: :post %>
+            </span>
+          <% end %>
         <% end %>
       </span>
     <% end %>
